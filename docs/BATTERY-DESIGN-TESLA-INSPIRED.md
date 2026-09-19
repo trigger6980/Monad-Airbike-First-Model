@@ -1,8 +1,8 @@
 # Monad Airbike Battery Design — Tesla-Inspired Architecture
 
-**Date:** 2026-09-18  
+**Date:** 2026-09-18 (updated for 30 min fly time)  
 **Phase:** 2 — Propulsion & Power Decision  
-**Status:** Initial design proposal based on Tesla 4680 research + eVTOL requirements
+**Status:** Revised for 30-minute flight endurance target
 
 ## 1. Tesla Battery Research Summary (2026)
 
@@ -21,78 +21,74 @@
 - Structural integration saves mass and parts count
 - Real-world Gen1 4680 energy density has been slightly below best 2170 cells; Gen2 improvements are real but manufacturing yield was hard
 
-## 2. Airbike Mission Requirements
+## 2. Airbike Mission Requirements (UPDATED)
 
 Target vehicle:
-- Empty mass goal: < 80 kg
+- Empty mass goal: < 80 kg (now under severe pressure)
 - Pilot + payload: up to 100 kg
 - Gross takeoff mass: ~160–180 kg
-- Hover endurance goal: 15–25 minutes
+- **Hover / flight endurance goal: 30 minutes** (user directive)
 - Dual-mode: hover + limited ground roll
 
 Estimated hover power (scaled from small multicopter data such as E-Hang 184):
 - ~25–35 kW continuous for hover at our mass
 - Higher peak for takeoff / aggressive maneuvers
 
-Energy need (example):
-- 20 minutes hover at 30 kW average → 10 kWh usable
-- Plus 20–30% reserve + cruise margin → design for 12–15 kWh usable
+Energy need for 30 min fly time:
+- 30 minutes at 30 kW average → **15 kWh continuous**
+- Plus 20–30% reserve for safety, landing, wind, inefficiency → design for **18–22 kWh usable**
 
-Pack mass budget: ideally ≤ 25 kg (very aggressive; 30–35 kg more realistic with current tech)
+Pack mass reality check (current high-power NMC technology):
+- Realistic pack-level energy density under high C-rate duty: 180–230 Wh/kg
+- For 20 kWh usable → pack mass ≈ **87–110 kg**
+- This exceeds the original <80 kg empty vehicle target by a large margin
 
-## 3. Proposed Battery Design for Monad Airbike Mk1
+**Conclusion:** Pure battery for 30 min full hover is extremely challenging with 2026 technology while keeping the vehicle light. Options below.
 
-### Cell Choice
-**Primary recommendation:** High-power cylindrical NMC cells in 21700 or 4680 format (Tesla-inspired tabless where available commercially).
+## 3. Revised Battery Design Options for 30 min Fly Time
 
-Why not pure LFP?
-- Lower energy density (160–200 Wh/kg) makes the mass target almost impossible for 15+ min hover.
-- NMC (or future NCMA / high-nickel) gives the best energy + power compromise for eVTOL-class duty.
+### Option A — Pure Electric (Aggressive)
+- Usable energy: 18–22 kWh
+- Pack mass: 90–110 kg (accept higher empty mass ~120–140 kg)
+- Cell: High-power NMC 21700 / 4680-style, Tesla-inspired tabless
+- Cooling: Aggressive liquid cooling mandatory
+- Trade-off: Vehicle becomes heavier; still possible but loses “ultralight / motorcycle-like” feel
 
-Alternative / hybrid path:
-- High-power cells for the high-C hover phase + energy cells for cruise (more complex BMS).
+### Option B — Hybrid (Recommended for 30 min)
+- Battery: 8–12 kWh high-power pack (mass 30–45 kg) for takeoff, hover, and emergency
+- Range extender: small turbine / generator or micro-jet (Volonaut-style) for sustained cruise / longer endurance
+- Keeps empty mass closer to original goal
+- Allows 30+ min total flight with fuel top-up in <1 min
 
-### Pack Architecture (Tesla-inspired)
-- **Format:** Modular cell groups (e.g., 4–8 parallel groups in series to reach 100–400 V)
-- **Cooling:** Liquid cooling plates or serpentine channels contacting cell sides/ends (critical for high C-rate hover)
-- **Structure:** Cells contribute to chassis stiffness where possible (structural pack concept scaled down)
-- **BMS:** Full cell-level monitoring, active or passive balancing, over-current / over-temp / isolation fault protection, fly-by-wire integration
-- **Enclosure:** Lightweight carbon or aluminum with fire-resistant barriers and directed venting
-- **Connectors:** High-current, vibration-resistant, with pre-charge circuit
+### Option C — Mission Profile Optimization
+- 30 min total flight time with mixed hover + forward flight (forward flight uses less power)
+- Example: 5–8 min pure hover + 20+ min efficient cruise
+- Battery sized for peak hover + average cruise energy
+- More realistic with pure electric
 
-### Target Specs (Mk1 Proposal)
-| Parameter              | Target                          |
-|------------------------|---------------------------------|
-| Usable energy          | 12–15 kWh                       |
-| Pack mass              | ≤ 30 kg (stretch ≤ 25 kg)       |
-| Pack energy density    | ≥ 400–500 Wh/kg (stretch)       |
-| Continuous power       | 30–40 kW                        |
-| Peak power (10–30 s)   | 50–70 kW                        |
-| Voltage                | 100–400 V (to be decided with motor/ESC choice) |
-| Cooling                | Active liquid                   |
-| Cycle life goal        | 500+ full equivalent cycles under aggressive duty |
-
-### Safety Features (Tesla + Aerospace)
-- Thermal runaway propagation barriers
-- Directed vent paths
-- Redundant sensors
-- Automatic disconnect on crash / fire detection
-- Compliance path toward ultralight / experimental aircraft rules
+### Updated Target Specs (working proposal)
+| Parameter              | Pure Electric 30 min | Hybrid Recommended |
+|------------------------|----------------------|--------------------|
+| Usable battery energy  | 18–22 kWh            | 8–12 kWh           |
+| Pack mass              | 90–110 kg            | 30–45 kg           |
+| Continuous power       | 30–40 kW             | 30–40 kW (battery) |
+| Peak power             | 50–70 kW             | 50–70 kW           |
+| Cooling                | Active liquid        | Active liquid      |
+| Additional power       | None                 | Small turbine / generator |
 
 ## 4. Next Engineering Steps
-1. Finalize exact cell model (commercial 21700 high-power or 4680 equivalent).
-2. Calculate series/parallel configuration and exact voltage.
-3. Design cooling loop (pump, radiator, cold plates).
-4. Select or design BMS hardware + firmware.
-5. Mechanical packaging into the motorcycle-style chassis (location for CG balance).
-6. Prototype small module first → full pack.
+1. Decide: Pure electric (accept heavier vehicle) or Hybrid (keep light + 30 min capability).
+2. If pure: recalculate vehicle empty mass target and structure.
+3. If hybrid: research micro-turbine / range-extender options compatible with ultralight rules.
+4. Finalize cell selection and series/parallel math.
+5. Design cooling and packaging for the chosen energy level.
 
-## 5. Open Questions for Decision
-- Pure electric vs hybrid (small generator or jet assist for range)?
-- Preferred voltage platform (low voltage high current vs higher voltage)?
-- Willing to accept higher pack mass for longer endurance or safer chemistry?
+## 5. Open Questions (Updated)
+- Confirm pure electric 30 min (heavier bike) or hybrid path?
+- Preferred voltage platform?
+- Accept higher empty mass for pure battery, or keep light with hybrid?
 
-This document will be updated as we lock decisions and source real cells.
+This document reflects the new 30-minute fly time requirement.
 
 ---
 *Quantum co-pilot: Grok | Eternal Unity Tech Empire*
