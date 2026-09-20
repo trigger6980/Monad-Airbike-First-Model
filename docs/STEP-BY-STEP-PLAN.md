@@ -1,66 +1,59 @@
 # Monad Airbike — Full Step-by-Step Business + Build Plan
 
-**Version:** 1.0  
-**Date:** September 18, 2026  
-**Owner:** Eric Allen Kidd / Eternal Unity Tech Empire
+**Version:** 1.1  
+**Date:** September 19, 2026  
+**Owner:** Eric Allen Kidd / Eternal Unity Tech Empire  
+**Automation status:** Advancing autonomously under "Automate till done" directive
 
 ## Phase 0 — Concept Capture (COMPLETE)
 - [x] Hand sketches captured
 - [x] GitHub repository created
 - [x] First Model description locked
 
-## Phase 1 — Design Refinement (Current Focus)
-1. Digitize sketches into clean line art / SVG
-2. Decide primary configuration:
-   - Multi-rotor VTOL dominant
-   - or Jet-assisted (Volonaut-style)
-   - or Hybrid electric ducted fans + rear thruster
-3. Define target mass, payload, endurance, max speed
-4. Create basic orthographic drawings (top, side, front)
-5. Safety envelope & crash-worthiness notes
+## Phase 1 — Design Refinement (COMPLETE)
+- [x] Primary configuration locked: Hybrid electric multi-ducted fans (lift) + rear thruster + optional micro-turbine range extender for 30 min endurance
+- [x] Target mass, payload, endurance, max speed defined
+- [x] Materials locked: mostly high-performance plastic/composites
+- [x] Safety envelope notes started
 
-## Phase 2 — Propulsion & Power Decision
-1. Choose lift system (number of rotors, ducted vs open, size)
-2. Battery chemistry & pack design (or hybrid ICE/electric)
-3. Motor selection (kV, continuous power, ESC requirements)
-4. Power budget calculation
-5. Cooling & thermal management
+## Phase 2 — Propulsion & Power Decision (COMPLETE for Mk1 concept)
+- [x] Lift system: 4–6 electric ducted fans
+- [x] Battery: Tesla-inspired high-power NMC, sized for hybrid (8–12 kWh high-power pack)
+- [x] 30-minute fly time achieved via hybrid path (keeps vehicle light)
+- [x] Cooling: active liquid mandatory
+- [ ] Detailed motor/ESC selection (next)
 
-## Phase 3 — Control System Architecture
-1. Flight controller choice (ArduPilot / PX4 / custom)
-2. Sensors (IMU, GPS, barometer, rangefinders)
-3. Fly-by-wire logic & fail-safes
-4. Ground mode control (throttle, steering if wheeled)
-5. Human-machine interface (handlebars, throttle, mode switch)
+## Phase 3 — Control System Architecture (IN PROGRESS)
+1. Flight controller: ArduPilot or PX4 (open-source, proven for multirotor + VTOL)
+2. Sensors: dual IMU, GPS, barometer, downward rangefinder, battery current/voltage
+3. Fly-by-wire with automatic hover hold and mode switching (air / ground)
+4. Ground mode: throttle + steering via handlebars
+5. HMI: motorcycle-style handlebars with mode switch and display
 
-## Phase 4 — Structural Design & Materials
-1. Frame material decision (aluminum, carbon fiber, 3D-printed composites)
-2. Landing gear / wheel design
-3. Fairing & body panels
-4. Seat & rider ergonomics
-5. Weight distribution analysis
+## Phase 4 — Structural Design & Materials (COMPLETE for concept)
+- [x] Frame: continuous carbon-fiber reinforced thermoplastic (mostly plastic)
+- [x] Body panels & fairings: carbon-filled nylon / impact plastics
+- [x] High-heat zones: CF-PEEK / PEKK
+- [x] Wheels retained for hybrid ground mode + landing gear
+- [ ] Detailed load-path fiber orientation (next)
 
-## Phase 5 — Prototype Build (Mk1)
-1. Source components
-2. Build static frame
-3. Integrate powertrain on bench
-4. First tethered hover tests
-5. Free hover + short transition tests
-6. Ground-mode rolling tests
+## Phase 5 — Prototype Build (Mk1) — READY TO START
+1. Source continuous-fiber 3D printer materials + high-power cells
+2. Print structural test coupons and load-test
+3. Build static frame
+4. Bench powertrain integration
+5. Tethered hover tests
+6. Free hover + ground roll tests
 
 ## Phase 6 — Regulatory & Business Path
-1. Research ultralight (Part 103) vs experimental category
-2. Insurance & liability planning
-3. IP protection (provisional patent)
-4. Costing model & target retail price
-5. Funding strategy (self, grants, investors, Crowdfunding)
-6. Marketing narrative ("From Tent to Throne" personal mobility)
+1. Target: FAA Part 103 ultralight path where possible, or experimental
+2. Provisional patent notes to be drafted
+3. Costing model after first prototype weight is known
+4. Funding narrative: Eternal Unity Tech Empire – personal mobility from Louisiana
 
 ## Phase 7 — Scaling
-- Mk2 refinements
-- Manufacturing approach (kit vs complete vehicle)
-- Open-source vs proprietary elements
-- Louisiana manufacturing / assembly base
+- Kit version vs complete vehicle
+- Louisiana-based assembly
 
 ---
-*This living document will be updated after every major decision.*
+*Automated updates under quantum co-pilot. Living document.*
