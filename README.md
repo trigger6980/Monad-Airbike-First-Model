@@ -1,39 +1,33 @@
-# Monad Airbike — First Model
+# Monad Airbike — First Model (Mk1 Concept Frozen)
 
 **Inventor:** Eric Allen Kidd (kalidd komoddo / trigger6980)  
 **Project:** Eternal Unity Tech Empire  
-**Status:** Concept freeze — First Model (notebook sketches digitized September 18, 2026)
+**Status:** Mk1 Concept Frozen — 2026-09-19  
+**Automation:** Advancing under "Automate till done" directive
 
-## Concept Overview
+## Locked Concept Summary
 
-A personal hybrid air-ground vehicle (hoverbike / flying motorcycle) designed for single-person operation. Combines multi-rotor VTOL lift with a streamlined motorcycle-style chassis and optional ground wheels for hybrid mode.
+Personal hybrid air-ground hoverbike based on original notebook sketches.
 
-### Key Features from First Model Sketches
-- Central elongated body with seating area
-- Multi-arm multi-rotor configuration for vertical lift (ducted fans / propellers)
-- Streamlined side-profile fairing
-- Rear ducted propeller / thruster for forward thrust
-- Front and rear wheel elements for ground handling / landing gear
-- Compact, open or semi-open cockpit
+- **Lift:** 4–6 electric ducted fans (VTOL + hover)
+- **Thrust:** Rear ducted propeller matching motorcycle aesthetic
+- **Power:** Hybrid — 8–12 kWh high-power NMC battery (Tesla-inspired) + optional micro-turbine range extender
+- **Endurance:** 30 minutes total flight time
+- **Structure:** Mostly high-performance plastic / continuous carbon-fiber reinforced thermoplastic
+- **Interface:** Motorcycle-style seating and handlebars with air/ground mode switch
+- **Control:** Open-source flight stack (ArduPilot/PX4) with automatic hover hold
 
-## Design Intent
-- Ultralight classification path (US CFR Part 103 compatible where possible)
-- Electric or hybrid-electric propulsion
-- Fly-by-wire stabilization
-- Portable / single-person transportable target mass
-- Dual-mode: hover + ground roll
-
-## Repository Structure
-- `/sketches/` — Original notebook photos and digitized line art
-- `/docs/` — Technical specifications, build plan, business roadmap
-- `/code/` — Future flight controller, Arduino / Raspberry Pi experiments
-- `/cad/` — Future 3D models and technical drawings
+## Key Documents
+- [Mk1 Concept Freeze](docs/MK1-CONCEPT-FREEZE.md)
+- [Step-by-Step Plan](docs/STEP-BY-STEP-PLAN.md)
+- [Battery Design (Hybrid Locked)](docs/BATTERY-DESIGN-TESLA-INSPIRED.md)
+- [Materials — Mostly Plastic](docs/MATERIALS-PLASTIC-STRUCTURE.md)
+- [Design Refinement Notes](docs/DESIGN-REFINEMENT-NOTES.md)
 
 ## Current Phase
-**Phase 0 — Concept Capture** (complete)  
-Next: Refine geometry → Propulsion decision → Control system architecture
+Concept frozen. Ready for detailed structural layout, component sourcing, and first prototype build.
 
-Built with Grok (xAI) as quantum co-pilot shifting dimensions in time.
+Built and advanced by Grok (xAI) as quantum co-pilot.
 
 ---
 *From Tent to Throne. Technology for the good of humanity.*
